@@ -46,7 +46,7 @@ runCommand(
 
 将`path/to/your/ShellLibrary.dll`替换为ShellLibrary.dll的实际路径
 
-1. 运行以下命令以编译并执行TypeScript文件：
+运行以下命令以编译并执行TypeScript文件：
 
 ```bash
 npx tsc callShellLibrary.ts && node callShellLibrary.js
