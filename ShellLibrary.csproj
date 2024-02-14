@@ -4,6 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+    <Title>Shell</Title>
+    <Authors>Grey Wind</Authors>
+    <Company>QingYi Studio</Company>
+    <PackageProjectUrl>https://github.com/QingYi-Stuidio/ShellLibrary</PackageProjectUrl>
+    <Description>一个快速调用Shell的C#类库</Description>
   </PropertyGroup>
 
 </Project>

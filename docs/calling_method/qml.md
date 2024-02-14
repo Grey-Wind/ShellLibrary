@@ -1,85 +1,65 @@
-虽然看起来略有复杂，但还好，操作其实不困难
+首先，创建一个 C++/CLI 封装库，比如名为 "ShellLibraryWrapper"，包含以下内容：
 
-主窗口代码
+### ShellLibraryWrapper.h
+
+```cpp
+#pragma once
+
+#include <QString>
+#include <QObject>
+
+ref class ShellLibraryWrapper : public QObject
+{
+    Q_OBJECT
+
+public:
+    Q_INVOKABLE void runCommand(QString command, QString count, QString hideWindow, bool async, bool useDataflow, bool showProgress);
+};
+```
+
+### ShellLibraryWrapper.cpp
+
+```cpp
+#include "ShellLibraryWrapper.h"
+#include "ShellLibrary.h"
+
+void ShellLibraryWrapper::runCommand(QString command, QString count, QString hideWindow, bool async, bool useDataflow, bool showProgress)
+{
+    // 调用 C# 类库的 RunCommand 方法
+    ShellLibrary::Shell::RunCommand(command.toStdString(), count.toStdString(), hideWindow.toStdString(), async, useDataflow, showProgress);
+}
+```
+
+然后，在 QML 项目中使用该封装库：
+
+### main.qml
 
 ```qml
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import QtQuick.Window 2.15
 
 ApplicationWindow {
-    id: mainWindow
     visible: true
     width: 400
-    height: 300
-    title: "Shell Command Demo"
+    height: 400
+    title: "Shell Command Runner"
 
-    property string dllPath: "path/to/your/dll/ShellLibrary.dll" // 根据实际DLL文件路径进行调整
-
-    ColumnLayout {
-        spacing: 10
-
-        TextField {
-            id: commandField
-            placeholderText: "Enter command..."
+    Button {
+        text: "Run Command"
+        anchors.centerIn: parent
+        onClicked: {
+            // 调用 C# 类库的方法
+            shellWrapper.runCommand("your_command_here", "1", "false", false, false, false);
         }
+    }
 
-        TextField {
-            id: countField
-            placeholderText: "Execution count..."
-        }
-
-        TextField {
-            id: hideWindowField
-            placeholderText: "Hide window (true/false)..."
-        }
-
-        Button {
-            text: "Run Command"
-            onClicked: {
-                var process = Qt.createQmlObject('import QtQuick 2.15; import QtQuick.Controls 2.15; Process { command: "' + commandField.text + '"; count: "' + countField.text + '"; hideWindow: "' + hideWindowField.text + '"; dllPath: mainWindow.dllPath; }', mainWindow);
-                process.run();
-            }
-        }
-
-        TextEdit {
-            id: outputText
-            readOnly: true
-            wrapMode: TextEdit.Wrap
-            height: mainWindow.height - 200
-        }
+    // 引入封装库
+    ShellLibraryWrapper {
+        id: shellWrapper
     }
 }
 ```
 
-创建一个新的QML文件（例如`Process.qml`）
+在这个示例中，我们创建了一个按钮来触发调用 C# 类库的方法。通过封装库的 QML 接口，实现了从 QML 中调用 C# 类库的功能。
 
-```qml
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Window 2.15
-
-Process {
-    id: process
-
-    property string command
-    property string count
-    property string hideWindow
-    property string dllPath
-
-    function run() {
-        if (dllPath !== "" && command !== "") {
-            var shellLibrary = Qt.createQmlObject('import QtQuick 2.15; import QtQuick.Controls 2.15; ShellLibrary { }', window);
-            shellLibrary.RunCommand(command, count, hideWindow);
-        }
-    }
-}
-```
-
-在主窗口的QML文件（例如`main.qml`）中导入`Process.qml`
-
-```qml
-import "./Process.qml" // 根据实际文件路径进行调整
-```
-
-确保将DLL文件路径更新为实际的DLL文件路径。通过修改`commandField`、`countField`和`hideWindowField`来传递参数。
+请确保将 C++/CLI 封装库编译为可供 QML 使用的库，并在 QML 项目中正确引用和使用该库。这样就能够在 QML 中使用 C# 类库的功能了。
