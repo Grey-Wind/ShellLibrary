@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellLibrary", "ShellLibrar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsTest", "CsTest\CsTest.csproj", "{6D5325A1-7083-41E8-A1AD-3616A38EFB18}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VbTest", "VbTest\VbTest.vbproj", "{10235414-945C-490E-8324-002E1ECD02EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6D5325A1-7083-41E8-A1AD-3616A38EFB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D5325A1-7083-41E8-A1AD-3616A38EFB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D5325A1-7083-41E8-A1AD-3616A38EFB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10235414-945C-490E-8324-002E1ECD02EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10235414-945C-490E-8324-002E1ECD02EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10235414-945C-490E-8324-002E1ECD02EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10235414-945C-490E-8324-002E1ECD02EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
