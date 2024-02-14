@@ -3,7 +3,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net472</TargetFramework> 
 
-    <WarnOn>3390;$(WarnOn)</WarnOn>
+    <WarnOn>3390;$(WarnOn)</WarnOn> 
+
+    <Configurations>Debug;Release;发布</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>2.0.1</version>
+    <title>$title$</title>
+    <authors>Grey-Wind</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">GPL-3.0-only</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/Grey-Wind/ShellLibrary</projectUrl>
+    <description>一个快速调用Shell的C#类库</description>
+    <releaseNotes></releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Shell</tags>
+  </metadata>
+</package>

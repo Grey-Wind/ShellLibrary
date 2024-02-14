@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ShellLibrary")]
+[assembly: AssemblyTitle("Shell Library")]
 [assembly: AssemblyDescription("一个快速调用Shell的C#类库")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("QingYi Studio")]
 [assembly: AssemblyProduct("ShellLibrary")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("ShellLibrary")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型
