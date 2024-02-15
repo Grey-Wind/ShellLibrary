@@ -7,10 +7,13 @@ namespace CsTest
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private async void Main(string[] args)
         {
-            Shell.RunCommand("ipconfig", "2", "false", false, false, false);
+            await Task.Run(() =>
+            {
+                Shell.RunCommand("ipconfig", "2", "false", false, false, false);
             Shell.RunCommand("pause");
+            }
         }
     }
 }
@@ -19,38 +22,32 @@ namespace CsTest
 ## Visual Basic .NET Framework
 
 ```vb
-Imports ShellLibrary
+Using ShellLibrary
 
-Module Program
-
-    Sub Main()
-        ' 调用 RunCommand 方法运行命令
-        Shell.RunCommand("ping 127.0.0.1", count:="3", hideWindow:="false", async:=False, useDataflow:=False, showProgress:=False)
-
-        Console.ReadLine()
-    End Sub
-
-End Module
+Namespace VbTest
+    Public Class Program
+        Private Async Sub Main(args As String())
+            Await Task.Run(Sub()
+                Shell.RunCommand("ipconfig", "2", "False", False, False, False)
+            Shell.RunCommand("pause")
+            End Sub)
+        End Sub
+    End Class
+End Namespace
 ```
 
 ## F# .NET Framework
 
 ```F#
 open ShellLibrary
+open System.Threading.Tasks
 
-[<EntryPoint>]
-let main args =
-    async {
-        let command = "dir" // 要执行的命令
-        let count = "5" // 执行命令的次数
-        let hideWindow = "false" // 是否隐藏命令行窗口
-        let async = true // 是否异步执行命令
-        let useDataflow = false // 是否使用数据流进行异步执行
-        let showProgress = true // 是否显示命令执行进度条
-
-        do! Shell.RunCommand(command, count, hideWindow, async, useDataflow, showProgress) |> Async.AwaitTask
-    } |> Async.RunSynchronously |> ignore
-
-    0 // 返回一个整数结果，表示程序正常结束
+type Program() =
+    member this.Main(args : string array) =
+        let task = async {
+            do! Shell.RunCommand("ipconfig", "2", "false", false, false, false) |> Async.AwaitTask
+            Shell.RunCommand("pause") |> ignore
+        }
+        task |> Async.Start
 ```
 

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>2.0.1</version>
-    <title>Shell Library</title>
+    <id>ShellLibrary.dll</id>
+    <version>2.1.0</version>
     <authors>Grey-Wind</authors>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">GPL-3.0-only</license>
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/Grey-Wind/ShellLibrary</projectUrl>

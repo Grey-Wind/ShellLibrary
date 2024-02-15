@@ -5,7 +5,7 @@
 
     <WarnOn>3390;$(WarnOn)</WarnOn> 
 
-    <Configurations>Debug;Release;发布</Configurations>
+    <Configurations>Debug;Release;发布;Publish</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

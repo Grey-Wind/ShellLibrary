@@ -36,7 +36,7 @@ namespace ShellLibrary
             else
             {
                 RunCommandSync(command, executionCount, isHideWindow);
-            }
+            } 
         }
 
         private static void RunCommandSync(string command, int executionCount, bool isHideWindow)
@@ -105,6 +105,12 @@ namespace ShellLibrary
                 process.Start();
                 string output = await process.StandardOutput.ReadToEndAsync();
                 Console.WriteLine(output);
+                if (!isHideWindow)
+                {
+                    // 暂停代码执行，保持 Shell 窗口不消失
+                    Console.WriteLine("按任意键退出...");
+                    Console.ReadKey();
+                }
                 process.WaitForExit();
             }
         }
