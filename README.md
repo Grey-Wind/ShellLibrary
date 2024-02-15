@@ -17,3 +17,10 @@
     <p><a href="./docs/calling_method/assembly.md">Assembly</a></p>
     <!-- <p><a href="./docs/calling_method/.md"></a></p> -->
 </details>
+------
+
+各版本下载地址：
+
+- 1.0.0-2.0.0：https://github.com/Grey-Wind/ShellLibrary/releases
+- 2.0.1：https://www.nuget.org/packages/ShellLibrary/
+- 2.1.0+：https://www.nuget.org/packages/ShellLibrary.dll/
